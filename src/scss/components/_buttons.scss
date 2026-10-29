@@ -1,0 +1,44 @@
+@use '../abstracts/variables' as *;
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font: 500 0.95rem/1 $sans;
+  text-decoration: none;
+  transition: transform 0.2s, background 0.2s, color 0.2s, border-color 0.2s;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &--primary {
+    background: $accent;
+    color: $bg;
+
+    &:hover {
+      background: $accent-2;
+    }
+  }
+
+  &--ghost {
+    border-color: $line;
+
+    &:hover {
+      border-color: $ink;
+    }
+  }
+
+  &--lg {
+    padding: 1.1rem 1.8rem;
+    font-size: 1.05rem;
+
+    @media (max-width: $md) {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+}

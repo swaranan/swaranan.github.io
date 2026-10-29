@@ -1,0 +1,35 @@
+@use 'sass:color';
+@use '../abstracts/variables' as *;
+
+.card {
+  padding: 2rem 1.75rem;
+  background: $bg-2;
+  transition: background 0.3s;
+
+  &:hover {
+    background: color.adjust($bg-2, $lightness: 3%);
+
+    .card__num {
+      color: $accent;
+    }
+  }
+
+  &__num {
+    display: block;
+    margin-bottom: 2.5rem;
+    font: 400 0.8rem/1 $mono;
+    color: $muted;
+    transition: color 0.3s;
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    font: 600 1.35rem/1.2 $serif;
+  }
+
+  p {
+    margin: 0;
+    color: $muted;
+    font-size: 0.95rem;
+  }
+}
