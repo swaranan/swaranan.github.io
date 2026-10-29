@@ -1,0 +1,148 @@
+@use '../abstracts/variables' as *;
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  border-bottom: 1px solid transparent;
+  transition: background 0.3s, border-color 0.3s;
+
+  &.is-scrolled {
+    background: rgba($bg, 0.85);
+    backdrop-filter: blur(12px);
+    border-color: $line;
+  }
+
+  &__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 72px;
+  }
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+
+  &__mark {
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    background: $accent;
+    color: $bg;
+    font: 800 1rem/1 $serif;
+  }
+
+  &__name {
+    font: 600 1.05rem/1 $sans;
+  }
+}
+
+.nav {
+  &__toggle {
+    display: none;
+    position: relative;
+    z-index: 2;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    background: none;
+    cursor: pointer;
+
+    @media (max-width: $md) {
+      display: block;
+    }
+
+    span:not(.sr-only) {
+      position: absolute;
+      left: 11px;
+      width: 22px;
+      height: 2px;
+      background: $ink;
+      transition: transform 0.3s, top 0.3s;
+
+      &:nth-child(1) {
+        top: 17px;
+      }
+
+      &:nth-child(2) {
+        top: 25px;
+      }
+    }
+
+    &[aria-expanded='true'] span:not(.sr-only) {
+      top: 21px;
+
+      &:nth-child(1) {
+        transform: rotate(45deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate(-45deg);
+      }
+    }
+  }
+
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    @media (max-width: $md) {
+      position: fixed;
+      inset: 0;
+      flex-direction: column;
+      justify-content: center;
+      gap: 1.5rem;
+      background: $bg;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s, visibility 0.3s;
+    }
+
+    &.is-open {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    a {
+      color: $muted;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: color 0.2s;
+
+      @media (max-width: $md) {
+        font: 600 2rem/1 $serif;
+        color: $ink;
+      }
+
+      &:hover {
+        color: $ink;
+      }
+    }
+  }
+
+  &__cta {
+    padding: 0.55rem 1.1rem;
+    border: 1px solid $line;
+    border-radius: 999px;
+    color: $ink !important;
+
+    @media (max-width: $md) {
+      border: 0;
+      color: $accent !important;
+    }
+
+    &:hover {
+      border-color: $accent;
+    }
+  }
+}

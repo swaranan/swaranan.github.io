@@ -1,0 +1,25 @@
+@use '../abstracts/variables' as *;
+
+.site-footer {
+  padding: 2rem 0;
+  font: 400 0.8rem/1.5 $mono;
+  color: $muted;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    @media (max-width: $md) {
+      flex-direction: column;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  a:hover {
+    color: $accent;
+  }
+}
