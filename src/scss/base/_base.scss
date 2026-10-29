@@ -1,0 +1,54 @@
+@use '../abstracts/variables' as *;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+
+  @media (prefers-reduced-motion: reduce) {
+    scroll-behavior: auto;
+  }
+}
+
+body {
+  margin: 0;
+  background: $bg;
+  color: $ink;
+  font: 400 1.0625rem/1.65 $sans;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+
+  &.nav-open {
+    overflow: hidden;
+  }
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 1em;
+}
+
+::selection {
+  background: $accent;
+  color: $bg;
+}
