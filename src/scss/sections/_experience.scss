@@ -1,0 +1,50 @@
+@use '../abstracts/variables' as *;
+
+.timeline {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+
+  &__item {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    gap: 2rem;
+    padding: 2.25rem 0;
+    border-bottom: 1px solid $line;
+
+    @media (max-width: $md) {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+    }
+
+    &:first-child {
+      padding-top: 0;
+    }
+
+    &.is-current .timeline__when {
+      color: $accent;
+    }
+  }
+
+  &__when {
+    font: 400 0.9rem/1.8 $mono;
+    color: $muted;
+  }
+
+  &__what {
+    h3 {
+      font: 600 clamp(1.4rem, 2.5vw, 1.85rem)/1.2 $serif;
+    }
+
+    p {
+      max-width: 40rem;
+      color: $muted;
+    }
+  }
+
+  &__org {
+    margin: 0.35rem 0 0.9rem;
+    font-size: 0.95rem;
+    color: $ink !important;
+  }
+}
